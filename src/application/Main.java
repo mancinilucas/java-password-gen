@@ -8,20 +8,33 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Length: ");
+        System.out.println("How many characters do you want in your new password? ");
         int n = sc.nextInt();
-        System.out.println("Uppercase (true/false): ");
-        boolean uppercaseIncluded = sc.nextBoolean();
-        System.out.println("Lowercase (true/false): ");
-        boolean lowercaseIncluded = sc.nextBoolean();
-        System.out.println("Number (true/false): ");
-        boolean numberInclude = sc.nextBoolean();
-        System.out.println("Special Char (true/false): ");
-        boolean specialCharactersIncluded = sc.nextBoolean();
+        System.out.println("Do you want to use uppercase characters? (y/n) ");
+        char upperc = sc.next().charAt(0);
+        boolean uppercaseIncluded = upperc == 'y';
+        System.out.println("Do you want to use lowercase characters? (y/n) ");
+        char lowerc = sc.next().charAt(0);
+        boolean lowercaseIncluded = lowerc == 'y';
+        System.out.println("Do you want to use numbers? (y/n) ");
+        char numbers = sc.next().charAt(0);
+        boolean numberInclude = numbers == 'y';
+        System.out.println("Do you want to use special characters? (y/n) ");
+        char specialChar = sc.next().charAt(0);
+        boolean specialCharactersIncluded = specialChar == 'y';
 
         Alphabet alp = new Alphabet(uppercaseIncluded, lowercaseIncluded, numberInclude, specialCharactersIncluded);
         int elementsLength = alp.getAlphabet().length();
 
+        String newPassword = passwordGenerator(elementsLength, alp, n);
+
+        System.out.println();
+        System.out.println("The new generated password is: " + newPassword);
+
+        sc.close();
+    }
+
+    public static String passwordGenerator(int elementsLength, Alphabet alp, int n){
         StringBuilder pass = new StringBuilder("");
 
         int max = elementsLength - 1;
@@ -34,10 +47,6 @@ public class Main {
         }
 
         String newPassword = pass.toString();
-
-        System.out.println();
-        System.out.println("The new password is: " + newPassword);
-
-        sc.close();
+        return newPassword;
     }
 }
