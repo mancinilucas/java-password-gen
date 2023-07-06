@@ -10,9 +10,14 @@ Pequeno projeto desenvolvido para reforçar conhecimentos adquiridos com a final
 
 ## Operações desenvolvidas
 
-0. ..........
-1. ..........
-2. ..........
+0. Interação do usuário a partir do terminal
+1. Possibilidade de personalização da senha com a escolha de tipos e número de caracteres.
+2. Geração de senha a partir dos parâmetros passados
 
 ## Stack utilizada
 **Back-end:** Java 17
+
+## Próximas versões
+- Adicionar novas funcionalidades
+- Tratamento de erros e exceções
+- Encriptação e armazenamento de senhas geradas
